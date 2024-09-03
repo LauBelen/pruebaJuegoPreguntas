@@ -2,6 +2,8 @@ let users = JSON.parse(localStorage.getItem('users')) || [];
 let currentUser = {};
 let currentQuestion = 0;
 let score = 0;
+let timer;
+let timeLeft;
 
 const questions = [
     {
@@ -31,6 +33,8 @@ const optionsElement = document.getElementById('options');
 const resultElement = document.getElementById('result');
 const nextButton = document.getElementById('next-btn');
 const finalResultElement = document.getElementById('final-result');
+const timerElement = document.getElementById('timer');
+const timeLeftElement = document.getElementById('time-left');
 
 function startGame() {
     const name = document.getElementById('name').value;
@@ -49,6 +53,24 @@ function startGame() {
 function loadQuestion() {
     const currentQ = questions[currentQuestion];
     
+    // Mostrar/ocultar el temporizador según la pregunta
+    if (currentQuestion === 1) { // La segunda pregunta (índice 1)
+        timeLeft = 10; 
+        timerElement.style.display = 'block';
+        timeLeftElement.textContent = timeLeft;
+        timer = setInterval(() => {
+            timeLeft--;
+            timeLeftElement.textContent = timeLeft;
+            if (timeLeft <= 0) {
+                clearInterval(timer);
+                checkAnswer(null); 
+            }
+        }, 1000);
+    } else {
+        timerElement.style.display = 'none';
+        clearInterval(timer);
+    }
+
     if (currentQ.type === 'text') {
         questionElement.textContent = currentQ.content;
         questionImageElement.style.display = 'none';
@@ -69,6 +91,7 @@ function loadQuestion() {
 }
 
 function checkAnswer(option) {
+    clearInterval(timer); 
     const currentQ = questions[currentQuestion];
     if (option === currentQ.answer) {
         score++;
@@ -113,17 +136,6 @@ function displayResults() {
     finalResultElement.style.display = 'block'; 
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
 
 });
-
-
-
-
-
-
-
-
-
-

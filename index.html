@@ -9,6 +9,10 @@
 <body>
     <div class="container">
         <h1>Juego de Preguntas y Respuestas</h1>
+        <div id="timer" style="display: none;">
+            <div id="timer-icon"></div>
+            Tiempo restante: <span id="time-left"></span> segundos
+        </div>
         
 
         <div id="user-info">
@@ -18,7 +22,6 @@
             <input type="text" id="zone" required>
             <button onclick="startGame()">Empezar Juego</button>
         </div>
-        
 
         <div id="question-container" style="display: none;">
             <p id="question"></p>
@@ -27,7 +30,6 @@
             <p id="result" style="display: none;"></p>
             <button id="next-btn" style="display: none;" onclick="nextQuestion()">Siguiente Pregunta</button>
         </div>
-        
 
         <div id="final-result" style="display: none;">
             <h2>Resultados</h2>
@@ -38,6 +40,7 @@
     <script src="script.js"></script>
 </body>
 </html>
+
 
 
 

@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    font-family: Georgia, serif;
+    background-color: #ffc0cb;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -44,21 +44,55 @@ h1 {
 
 button {
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: #5c708f;
+    color: #FFF0F5;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #998080;
 }
 
 #result, #final-result {
     margin-top: 20px;
     font-weight: bold;
 }
+#timer {
+    font-size: 48px; /* Tamaño de letra grande */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Centrado horizontalmente */
+    margin-bottom: 20px; /* Espacio debajo del temporizador */
+    color: #ff0000; /* Color rojo para mayor visibilidad */
+}
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+#timer-icon {
+    display: inline-block;
+    width: 48px;
+    height: 48px;
+    background: url('/home/belen/Escritorio/reloj.png') no-repeat center center;
+    background-size: contain;
+    animation: rotate 2s linear infinite;
+}
+
+#timer {
+    font-size: 48px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ff0000;
+}
+
+
 
 
 
